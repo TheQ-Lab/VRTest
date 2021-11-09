@@ -15,12 +15,12 @@ G:/MD/Hochschuldidaktik/Unity/VRTest
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50642
+56821
 Successfully changed project path to: G:/MD/Hochschuldidaktik/Unity/VRTest
 G:/MD/Hochschuldidaktik/Unity/VRTest
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 79.59 ms, found 16 plugins.
-Preloading 2 native plugins for Editor in 2.78 ms.
+Refreshing native plugins compatible for Editor in 97.46 ms, found 19 plugins.
+Preloading 2 native plugins for Editor in 3.43 ms.
 Initialize engine version: 2020.3.22f1 (e1a7f79fd887)
 [Subsystems] Discovering subsystems at path G:/MD/UnityHub/Editor/2020.3.22f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path G:/MD/Hochschuldidaktik/Unity/VRTest/Assets
@@ -35,49 +35,60 @@ Initialize mono
 Mono path[0] = 'G:/MD/UnityHub/Editor/2020.3.22f1/Editor/Data/Managed'
 Mono path[1] = 'G:/MD/UnityHub/Editor/2020.3.22f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'G:/MD/UnityHub/Editor/2020.3.22f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56472
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56168
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: G:/MD/UnityHub/Editor/2020.3.22f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001108 seconds.
+Registered in 0.001194 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 63.69 ms, found 16 plugins.
-Preloading 2 native plugins for Editor in 0.10 ms.
+Refreshing native plugins compatible for Editor in 80.65 ms, found 19 plugins.
+Preloading 2 native plugins for Editor in 0.13 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.034 seconds
+- Completed reload, in  1.127 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1035ms)
-		BeginReloadAssembly (55ms)
+	ReloadAssembly (1127ms)
+		BeginReloadAssembly (59ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (531ms)
-			LoadAssemblies (54ms)
+		EndReloadAssembly (608ms)
+			LoadAssemblies (58ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (171ms)
+			SetupTypeCache (186ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (33ms)
-			SetupLoadedEditorAssemblies (212ms)
+			RebuildScriptCaches (44ms)
+			SetupLoadedEditorAssemblies (242ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (64ms)
-				BeforeProcessingInitializeOnLoad (19ms)
-				ProcessInitializeOnLoadAttributes (91ms)
-				ProcessInitializeOnLoadMethodAttributes (33ms)
+				RefreshPlugins (81ms)
+				BeforeProcessingInitializeOnLoad (20ms)
+				ProcessInitializeOnLoadAttributes (99ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.008670 seconds.
+Registered in 0.011308 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 62.91 ms, found 16 plugins.
-Preloading 2 native plugins for Editor in 0.09 ms.
+Refreshing native plugins compatible for Editor in 75.03 ms, found 19 plugins.
+Preloading 2 native plugins for Editor in 0.14 ms.
+Added DLL directory G:\MD\Hochschuldidaktik\Unity\VRTest\Library\PackageCache\com.microsoft.mixedreality.input@3257815bee0c-1636495983783\Plugins\Windows\x64 to the user search path.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Microsoft.MixedReality.Input.Init:.cctor () (at Library/PackageCache/com.microsoft.mixedreality.input@3257815bee0c-1636495983783/Editor/Microsoft.MixedReality.Input.Init.cs:88)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Library/PackageCache/com.microsoft.mixedreality.input@3257815bee0c-1636495983783/Editor/Microsoft.MixedReality.Input.Init.cs Line: 88)
+
 [XR] OculusXRPlugin: registering subsystems
 [XR] Unable to register display lifecyle provider: [1]
 [XR] Oculus Input lifecycle provider registered.
@@ -98,45 +109,45 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.443 seconds
+- Completed reload, in  1.709 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1444ms)
-		BeginReloadAssembly (164ms)
+	ReloadAssembly (1710ms)
+		BeginReloadAssembly (181ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (6ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (22ms)
-		EndReloadAssembly (1210ms)
-			LoadAssemblies (100ms)
+			CreateAndSetChildDomain (23ms)
+		EndReloadAssembly (1457ms)
+			LoadAssemblies (107ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (358ms)
+			SetupTypeCache (408ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (65ms)
-			SetupLoadedEditorAssemblies (537ms)
+			RebuildScriptCaches (73ms)
+			SetupLoadedEditorAssemblies (703ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
+				InitializePlatformSupportModulesInManaged (5ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (63ms)
-				BeforeProcessingInitializeOnLoad (94ms)
-				ProcessInitializeOnLoadAttributes (348ms)
-				ProcessInitializeOnLoadMethodAttributes (25ms)
+				RefreshPlugins (75ms)
+				BeforeProcessingInitializeOnLoad (106ms)
+				ProcessInitializeOnLoadAttributes (485ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
 				AfterProcessingInitializeOnLoad (3ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (7ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 1.05 ms, found 16 plugins.
-Preloading 2 native plugins for Editor in 0.12 ms.
-Unloading 2512 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 102.8 MB.
-System memory in use after: 103.0 MB.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 1.37 ms, found 19 plugins.
+Preloading 2 native plugins for Editor in 0.13 ms.
+Unloading 2815 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 112.2 MB.
+System memory in use after: 112.4 MB.
 
-Unloading 42 unused Assets to reduce memory usage. Loaded Objects now: 2941.
-Total: 4.350700 ms (FindLiveObjects: 0.307000 ms CreateObjectMapping: 0.078800 ms MarkObjects: 3.865400 ms  DeleteObjects: 0.098000 ms)
+Unloading 49 unused Assets to reduce memory usage. Loaded Objects now: 3238.
+Total: 5.221200 ms (FindLiveObjects: 0.368000 ms CreateObjectMapping: 0.096100 ms MarkObjects: 4.653800 ms  DeleteObjects: 0.101100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -150,41 +161,56 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/ExampleAssets
-  artifactKey: Guid(83b7bbecd9fac4db9824039903a1eea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets using Guid(83b7bbecd9fac4db9824039903a1eea8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bcfb1b979a28109c01204c06ad9a053') in 0.011765 seconds 
-  Import took 0.015757 seconds .
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a956ff0e83af221383b1bd8a5281aa6') in 0.014509 seconds 
+  Import took 0.020750 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000330 seconds.
-  path: Assets/ExampleAssets/Models/XRControllerLeft.fbx
-  artifactKey: Guid(e48d18018a0ba46c283d9fd9c227e578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models/XRControllerLeft.fbx using Guid(e48d18018a0ba46c283d9fd9c227e578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1d7a0bf7d114a5c6320170c444788e2') in 0.292486 seconds 
-  Import took 0.296616 seconds .
+  Time since last request: 2.945716 seconds.
+  path: Assets/Models
+  artifactKey: Guid(ded9f0369d672484ea8020f3346fbe27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models using Guid(ded9f0369d672484ea8020f3346fbe27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7c3ce08a1f1acca828f891c46f35e90') in 0.008426 seconds 
+  Import took 0.013209 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000310 seconds.
-  path: Assets/ExampleAssets/Models
-  artifactKey: Guid(4a0dd92c4753243b18b4100cf4991b5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models using Guid(4a0dd92c4753243b18b4100cf4991b5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f393eb9eeb9cc0e32f35eaf84ad4c547') in 0.006881 seconds 
-  Import took 0.010512 seconds .
+  Time since last request: 835.897076 seconds.
+  path: Assets/HowToVr.md
+  artifactKey: Guid(131d3b307520f9648992b4d42a4afa61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HowToVr.md using Guid(131d3b307520f9648992b4d42a4afa61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '604cfd31512a8b888fadecd367c9f358') in 0.044642 seconds 
+  Import took 0.049445 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000246 seconds.
-  path: Assets/ExampleAssets/Models/XRControllerRight.fbx
-  artifactKey: Guid(2d10b9b89f2474de9800b152c3d00004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models/XRControllerRight.fbx using Guid(2d10b9b89f2474de9800b152c3d00004) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '403a5ff2dc6afe0fb00542b1b295670b') in 0.085049 seconds 
-  Import took 0.088830 seconds .
+  Time since last request: 39.064401 seconds.
+  path: Assets/HowToVR.rtf
+  artifactKey: Guid(f9165ffa334c4c846964369f648632bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HowToVR.rtf using Guid(f9165ffa334c4c846964369f648632bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e8a6446674172068f7d70dbe6acf1415') in 0.013357 seconds 
+  Import took 0.018127 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.410303 seconds.
-  path: Assets/ExampleAssets/Models/Obj Test Vektor K10.obj
-  artifactKey: Guid(dbd34de7ea716244781796b1f68ac72d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ExampleAssets/Models/Obj Test Vektor K10.obj using Guid(dbd34de7ea716244781796b1f68ac72d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74e61da7b8f13e3c897c5933b3f2c408') in 0.165048 seconds 
-  Import took 0.169278 seconds .
+  Time since last request: 14.272850 seconds.
+  path: Assets/HowToVR.rtf
+  artifactKey: Guid(f9165ffa334c4c846964369f648632bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HowToVR.rtf using Guid(f9165ffa334c4c846964369f648632bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e0800b08e22c2b770cac1ad77417aef') in 0.002359 seconds 
+  Import took 0.006993 seconds .
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 500.740552 seconds.
+  path: Assets/HowToVr.md
+  artifactKey: Guid(131d3b307520f9648992b4d42a4afa61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HowToVr.md using Guid(131d3b307520f9648992b4d42a4afa61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '271453af239ec550e55b9aae73ace5a1') in 0.002383 seconds 
+  Import took 0.012202 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 155.480870 seconds.
+  path: Assets/HowToVr.md
+  artifactKey: Guid(131d3b307520f9648992b4d42a4afa61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/HowToVr.md using Guid(131d3b307520f9648992b4d42a4afa61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5ef30613213e7ee2ff52d672573e228') in 0.002339 seconds 
+  Import took 0.007195 seconds .
+
