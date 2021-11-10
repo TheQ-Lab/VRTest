@@ -27,6 +27,6 @@ Project Settings:
 		OpenXR:
 			Interaction Profile > HP Reverb G2
 			Windows Mixed Reality (v)
-				Hand Tracking(v)
+				Hand Tracking ( ) [disable for no double XR tracking device in list]
 				[Mixed Relity features (v)]
 				Motion Controller Model (v)
