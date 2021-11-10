@@ -6,6 +6,8 @@ using UnityEngine.XR;
 
 public class ControllerManager : MonoBehaviour
 {
+    public GameObject destroyer;
+
     private Microsoft.MixedReality.Input.ControllerInput inputType;
 
     private const InputDeviceCharacteristics rightControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
@@ -16,23 +18,9 @@ public class ControllerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(RepeatGetDevice(rightControllerCharacteristics, (d) => { rightController = d; }));
-        StartCoroutine(RepeatGetDevice(leftControllerCharacteristics, (d) => { leftController = d; }));
+        ConnectAllDevices();
+        //InputDevices.deviceDisconnected += ReConnectDevice;
 
-        //StartCoroutine(RepeatCheckDisconnectedDevices());
-    }
-
-    private void GetAllDevices()
-    {
-        List<InputDevice> devices = new List<InputDevice>();
-        InputDevices.GetDevices(devices);
-        //InputDeviceCharacteristics rightControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
-        //InputDevices.
-
-        foreach (var item in devices)
-        {
-            Debug.Log(item.name + item.characteristics);
-        }
     }
 
     private IEnumerator RepeatGetDevice(InputDeviceCharacteristics characteristics, System.Action<InputDevice> callback)
@@ -46,11 +34,60 @@ public class ControllerManager : MonoBehaviour
             if (devices.Count > 0)
             {
                 callback(devices[0]);
-                Debug.Log("Done assigning - " + devices[0].name);
+                Debug.Log("Done assigning - " + devices[0].name + " - " + devices[0].characteristics);
             }
         } while (devices.Count == 0);
     }
 
+
+    void ConnectAllDevices()
+    {
+        StartCoroutine(RepeatGetDevice(rightControllerCharacteristics, (d) => { rightController = d; }));
+        StartCoroutine(RepeatGetDevice(leftControllerCharacteristics, (d) => { leftController = d; }));
+    }
+
+
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (rightController.isValid)
+        {
+            rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonVal);
+            if (primaryButtonVal)
+            {
+                Debug.Log("Pressing Primary Button");
+                if (destroyer != null)
+                    destroyer.SetActive(!destroyer.activeSelf);
+            }
+            else
+            {
+                //Debug.Log("No button pressed");
+            }
+        }
+    }
+
+
+
+
+    // oldies
+
+    private void GetAllDevices()
+    {
+        List<InputDevice> devices = new List<InputDevice>();
+        InputDevices.GetDevices(devices);
+        //InputDeviceCharacteristics rightControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
+        //InputDevices.
+
+        foreach (var item in devices)
+        {
+            Debug.Log(item.name + item.characteristics);
+        }
+    }
+    void ReConnectDevice(InputDevice device)
+    {
+        ConnectAllDevices();
+    }
     private IEnumerator RepeatCheckDisconnectedDevices()
     {
         yield return new WaitForSeconds(5f);
@@ -81,11 +118,5 @@ public class ControllerManager : MonoBehaviour
             }
         } while (true);
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(targetDevice.name);
     }
 }
