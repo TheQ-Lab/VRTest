@@ -6,9 +6,13 @@ using UnityEngine.XR;
 
 public class ControllerManager : MonoBehaviour
 {
+    //private Microsoft.MixedReality.Input.ControllerInput inputType;
+    
+    public const float threshold = 0.1f;
+
     public GameObject destroyer;
 
-    private Microsoft.MixedReality.Input.ControllerInput inputType;
+    private InteractionExecutor interactionExecutor;
 
     private const InputDeviceCharacteristics rightControllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
     private const InputDeviceCharacteristics leftControllerCharacteristics = InputDeviceCharacteristics.Left | InputDeviceCharacteristics.Controller;
@@ -18,6 +22,7 @@ public class ControllerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        interactionExecutor = GetComponent<InteractionExecutor>();
         ConnectAllDevices();
         //InputDevices.deviceDisconnected += ReConnectDevice;
 
@@ -47,8 +52,8 @@ public class ControllerManager : MonoBehaviour
     }
 
 
-
-    // Update is called once per frame
+    [HideInInspector]
+    public bool aPressed = false, triggerPressed = false;
     void Update()
     {
         if (rightController.isValid)
@@ -56,14 +61,28 @@ public class ControllerManager : MonoBehaviour
             rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonVal);
             if (primaryButtonVal)
             {
-                Debug.Log("Pressing Primary Button");
-                if (destroyer != null)
-                    destroyer.SetActive(!destroyer.activeSelf);
+                if (!aPressed) 
+                {
+                    Debug.Log("Pressing Primary Button");
+                    if (destroyer != null)
+                        destroyer.SetActive(!destroyer.activeSelf);
+                    aPressed = true;
+                    interactionExecutor.EventReceiver(ref aPressed);
+                }
             }
             else
+                aPressed = false;
+            rightController.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+            if(triggerValue > threshold)
             {
-                //Debug.Log("No button pressed");
+                if (!triggerPressed)
+                {
+                    Debug.Log("Pressing Trigger");
+                    triggerPressed = true;
+                }
             }
+            else
+                triggerPressed = false;
         }
     }
 

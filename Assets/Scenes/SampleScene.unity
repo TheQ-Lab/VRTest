@@ -134,6 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256282351}
   - component: {fileID: 256282350}
+  - component: {fileID: 256282352}
   m_Layer: 0
   m_Name: ControllerManager
   m_TagString: Untagged
@@ -154,6 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyer: {fileID: 347303840}
+  aPressed: 0
+  triggerPressed: 0
 --- !u!4 &256282351
 Transform:
   m_ObjectHideFlags: 0
@@ -168,6 +171,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &256282352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256282349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e5f2a23aef26440990a66941d75f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modelParent: {fileID: 543450653106103163}
+  overlapFinder: {fileID: 541096549}
 --- !u!1 &305678647
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,6 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909e298dbb1b8574bb6bee88d81df069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intersectingObject: {fileID: 0}
 --- !u!1 &347303840
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909e298dbb1b8574bb6bee88d81df069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intersectingObject: {fileID: 0}
 --- !u!1 &599916901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,6 +1415,7 @@ GameObject:
   - component: {fileID: 7013746790076634059}
   - component: {fileID: 4852745727091847725}
   - component: {fileID: 3221845833589610714}
+  - component: {fileID: 374579291206120919}
   m_Layer: 0
   m_Name: VektorK10:pasted__Pic_Rail5_VektorK10:group2
   m_TagString: Untagged
@@ -1403,6 +1423,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &374579291206120919
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374579291206120918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6591957685457451288, guid: dbd34de7ea716244781796b1f68ac72d, type: 3}
 --- !u!4 &543450653106103163
 Transform:
   m_ObjectHideFlags: 0
@@ -1807,8 +1841,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &4191322880958934537
-CapsuleCollider:
+--- !u!64 &4191322880958934537
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1817,10 +1851,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.38
-  m_Height: 6.06
-  m_Direction: 0
-  m_Center: {x: 5.44804, y: 1.1052074, z: 0}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1161374379272330927, guid: dbd34de7ea716244781796b1f68ac72d, type: 3}
 --- !u!4 &4299852543353633081
 Transform:
   m_ObjectHideFlags: 0
@@ -2119,6 +2153,7 @@ GameObject:
   - component: {fileID: 8695016472548258482}
   - component: {fileID: 1522593625408713774}
   - component: {fileID: 1571484128818302692}
+  - component: {fileID: 6952024391415229728}
   m_Layer: 0
   m_Name: VektorK10:Pic_Rail5
   m_TagString: Untagged
@@ -2126,6 +2161,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &6952024391415229728
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6952024391415229727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 803402894484733791, guid: dbd34de7ea716244781796b1f68ac72d, type: 3}
 --- !u!23 &6961919904330454028
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2198,7 +2247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &8578441922151437275
 GameObject:
   m_ObjectHideFlags: 0
