@@ -18,17 +18,26 @@ public class EAAddCollidersToModelHirarchy : MonoBehaviour
         else
         {
             // Editor logic
-            foreach (Transform t in transform)
-            {
-                if (t.gameObject.activeSelf)
-                {
-                    t.gameObject.TryGetComponent<MeshCollider>(out MeshCollider m);
-                    if (m == null)
-                        t.gameObject.AddComponent<MeshCollider>();
-                    //t.gameObject.GetComponent<MeshCollider>();
-                }
-            }
-            this.enabled = false;
+            AddCollidersToChildren();
         }
+    }
+
+    /// <summary>
+    /// Adds a standard collider(!convex) to every child in the models hierarchy
+    /// </summary>
+    /// <param name="myBool">Parameter value to pass.</param>
+    /// <returns>void</returns>
+    private void AddCollidersToChildren()
+    {
+        foreach (Transform t in transform)
+        {
+            if (t.gameObject.activeSelf)
+            {
+                t.gameObject.TryGetComponent<MeshCollider>(out MeshCollider m);
+                if (m == null)
+                    t.gameObject.AddComponent<MeshCollider>();
+            }
+        }
+        this.enabled = false;
     }
 }

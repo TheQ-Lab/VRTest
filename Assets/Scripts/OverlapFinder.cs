@@ -15,6 +15,12 @@ public class OverlapFinder : MonoBehaviour
         Debug.Log("OverlapFinder on " + this.name + " starting");
     }
 
+    /// <summary>
+    /// Looks for the collision with the closest center of collider to this.collider.
+    /// </summary>
+    /// <param name="myBool">Parameter value to pass.</param>
+    /// <returns>GameObject that is most likely to be selected by the user. 
+    /// Can return null if there are no collisions.</returns>
     public GameObject GetMostIntersectingObject()
     {
         if (allColliders.Count == 0)
@@ -44,6 +50,7 @@ public class OverlapFinder : MonoBehaviour
     //    Debug.Log("Colliding still with" + other.name);
     //}
 
+    // Keep colliderList up to date
     private void OnTriggerEnter(Collider other)
     {
         allColliders.Add(other);

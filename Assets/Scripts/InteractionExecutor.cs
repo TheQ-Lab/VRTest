@@ -12,7 +12,6 @@ public class InteractionExecutor : MonoBehaviour
     private void Start()
     {
         controllerManager = GetComponent<ControllerManager>();
-        
     }
 
     bool held = false;
@@ -28,6 +27,7 @@ public class InteractionExecutor : MonoBehaviour
                 hitObject = overlapFinder.GetMostIntersectingObject();
                 if (hitObject != null)
                 {
+                    // save transforms and offset(difference) for calculation of controller movement
                     Debug.LogWarning(hitObject.name);
                     difference = overlapFinder.transform.position - hitObject.transform.position;
                     controller = overlapFinder.transform;
@@ -39,12 +39,14 @@ public class InteractionExecutor : MonoBehaviour
             {
                 if (hitObject != null)
                 {
+                    // move the held object with the controller essentially parented by factoring in its offset from the controller
                     manipulated.position = controller.position - difference;
                 }
             }
         }
         else
         {
+            // no hold button pressed
             hitObject = null;
             held = false;
         }
@@ -52,6 +54,7 @@ public class InteractionExecutor : MonoBehaviour
 
     public void EventReceiver(ref bool b)
     {
+        // not yet coded out; reference check does not work thus far
         if(bool.ReferenceEquals(b, controllerManager.aPressed) || true /*TEMP*/)
         {
             Debug.LogWarning("RESET");

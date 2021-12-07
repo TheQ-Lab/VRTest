@@ -28,6 +28,17 @@ public class ControllerManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Poll for Devices specified in controller characteristics in a coroutine and assign them
+    /// </summary>
+    /// <param name="myBool">Parameter value to pass.</param>
+    /// <returns>void</returns>
+    void ConnectAllDevices()
+    {
+        StartCoroutine(RepeatGetDevice(rightControllerCharacteristics, (d) => { rightController = d; }));
+        StartCoroutine(RepeatGetDevice(leftControllerCharacteristics, (d) => { leftController = d; }));
+    }
+
     private IEnumerator RepeatGetDevice(InputDeviceCharacteristics characteristics, System.Action<InputDevice> callback)
     {
         var devices = new List<InputDevice>();
@@ -35,9 +46,11 @@ public class ControllerManager : MonoBehaviour
         do
         {
             yield return null;
+            // look for all devices with specified characteristics and put them into devices[]
             InputDevices.GetDevicesWithCharacteristics(characteristics, devices);
             if (devices.Count > 0)
             {
+                // assign first hit  !!important when multiple HID profiles for controllers are active
                 callback(devices[0]);
                 Debug.Log("Done assigning - " + devices[0].name + " - " + devices[0].characteristics);
             }
@@ -45,52 +58,64 @@ public class ControllerManager : MonoBehaviour
     }
 
 
-    void ConnectAllDevices()
-    {
-        StartCoroutine(RepeatGetDevice(rightControllerCharacteristics, (d) => { rightController = d; }));
-        StartCoroutine(RepeatGetDevice(leftControllerCharacteristics, (d) => { leftController = d; }));
-    }
 
 
-    [HideInInspector]
-    public bool aPressed = false, triggerPressed = false;
     void Update()
     {
         if (rightController.isValid)
         {
-            rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonVal);
-            if (primaryButtonVal)
-            {
-                if (!aPressed) 
-                {
-                    Debug.Log("Pressing Primary Button");
-                    if (destroyer != null)
-                        destroyer.SetActive(!destroyer.activeSelf);
-                    aPressed = true;
-                    interactionExecutor.EventReceiver(ref aPressed);
-                }
-            }
-            else
-                aPressed = false;
-            rightController.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
-            if(triggerValue > threshold)
-            {
-                if (!triggerPressed)
-                {
-                    Debug.Log("Pressing Trigger");
-                    triggerPressed = true;
-                }
-            }
-            else
-                triggerPressed = false;
+            UpdateNExecuteRightController();
         }
+    }
+
+    [HideInInspector]
+    public bool aPressed = false, triggerPressed = false;
+    /// <summary>
+    /// Checks & updates right controller buttons
+    /// And executes Events for Buttons that should be Interrupt-ish
+    /// </summary>
+    /// <param name="myBool">Parameter value to pass.</param>
+    /// <returns>void</returns>
+    private void UpdateNExecuteRightController()
+    {
+        // Checks for and writes primaryButton in new bool primaryButtonVal
+        rightController.TryGetFeatureValue(CommonUsages.primaryButton, out bool primaryButtonVal);
+        if (primaryButtonVal)
+        {
+            if (!aPressed)
+            {
+                // Polling type events can read Button value from here:
+                aPressed = true;
+                // Put Interrupts for this Button here:
+                Debug.Log("Pressing Primary Button");
+                if (destroyer != null)
+                    destroyer.SetActive(!destroyer.activeSelf);
+                interactionExecutor.EventReceiver(ref aPressed);
+            }
+        }
+        else
+            aPressed = false; // Polling type events can read Button value from here
+
+        rightController.TryGetFeatureValue(CommonUsages.trigger, out float triggerValue);
+        if (triggerValue > threshold)
+        {
+            if (!triggerPressed)
+            {
+                // Polling type events can read Button value from here:
+                triggerPressed = true;
+                // Put Interrupts for this Button here:
+                Debug.Log("Pressing Trigger");
+            }
+        }
+        else
+            triggerPressed = false; // Polling type events can read Button value from here
     }
 
 
 
 
-    // oldies
-
+    // oldies - leave in for reference and ideas
+    /*
     private void GetAllDevices()
     {
         List<InputDevice> devices = new List<InputDevice>();
@@ -138,4 +163,5 @@ public class ControllerManager : MonoBehaviour
         } while (true);
 
     }
+    */
 }
